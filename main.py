@@ -82,7 +82,7 @@ def update_prev_board():
     PREV_BOARD = [[BOARD[row][col] for col in range(GRID_SIZE)] for row in range(GRID_SIZE)]
 
 def gen_loop():
-    global GENERATION, POPULATION, PREV_BOARD
+    global GENERATION, POPULATION, PREV_BOARD, DELAY
     running = True
     print("\t** Starting Simulation **\n")
     # generation loop - run simulation
@@ -99,6 +99,15 @@ def gen_loop():
                 # press space to end simulation
                 if event.key == pygame.K_SPACE:
                     running = False
+                
+                elif event.key == pygame.K_LEFT:
+                    print(f"Slowing down... New Delay: {DELAY:0.1f} seconds")
+                    DELAY += 0.1
+                
+                elif event.key == pygame.K_RIGHT:
+                    DELAY -= 0.1
+                    DELAY = max(0.1, DELAY)       # ensure delay is > 0
+                    print(f"Speeing up... New Delay: {DELAY:0.1f} seconds")
 
         # handle each cell, based on its neighbors
         for row in range(GRID_SIZE):
