@@ -107,7 +107,7 @@ def gen_loop():
                 elif event.key == pygame.K_RIGHT:
                     DELAY -= 0.1
                     DELAY = max(0.1, DELAY)       # ensure delay is > 0
-                    print(f"Speeing up... New Delay: {DELAY:0.1f} seconds")
+                    print(f"Speeding up... New Delay: {DELAY:0.1f} seconds")
 
         # handle each cell, based on its neighbors
         for row in range(GRID_SIZE):
